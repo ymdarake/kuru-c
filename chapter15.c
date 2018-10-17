@@ -1,24 +1,5 @@
 #include <stdio.h>
 
-int main(void)
-{
-	int i1,i2,i3;
-	printf("i1(%p)\n",&i1);
-	printf("i2(%p)\n",&i2);
-	printf("i3(%p)\n",&i3);
-
-    int array[10];
-    printf("array___(%p)\n", array);
-    printf("array[0](%p)\n", &array[0]);
-    printf("array[1](%p)\n", &array[1]);
-    printf("array[2](%p)\n", &array[2]);
-
-    char str[256] = "DRAGON";
-	scanf("%s",&str[6]); /* 6番の要素のアドレス */
-	printf("%s\n",str);
-
-	return 0;
-}
 /**
  * ポインタ型
  * 
@@ -48,3 +29,52 @@ int main(void)
  * その元となった型の変数のアドレスを自由に代入できます。
  * 更に、記憶しているアドレスのメモリを読んだり書き換えたりすることが出来ます。
  */
+
+void func(int *pvalue);
+
+int main(void)
+{
+	int value = 10;
+	printf("&value = %p\n", &value);
+	func(&value);
+	printf("value = %d\n", value);
+	return 0;
+}
+
+void func(int *pvalue)
+{
+	printf("pvalue = %p\n", pvalue);
+	*pvalue = 100;
+	return;
+}
+
+
+void example(void)
+{
+		// int i1,i2,i3;
+	// printf("i1(%p)\n",&i1);
+	// printf("i2(%p)\n",&i2);
+	// printf("i3(%p)\n",&i3);
+
+    // int array[10];
+    // printf("array___(%p)\n", array);
+    // printf("array[0](%p)\n", &array[0]);
+    // printf("array[1](%p)\n", &array[1]);
+    // printf("array[2](%p)\n", &array[2]);
+
+    // char str[256] = "DRAGON";
+	// scanf("%s",&str[6]); /* 6番の要素のアドレス */
+	// printf("%s\n",str);
+
+	int *p;// = NULL;
+	int i;
+	// printf("p = %p\n", p);
+	// p = &i;
+	// printf("p = %p\n", p);
+	// printf("&i = %p\n", &i);
+	// printf("*p = %p\n", *p);
+	p = &i;
+	*p = 10;
+	printf("*p = %d\n", *p);
+	printf("i = %d\n", i);
+}
