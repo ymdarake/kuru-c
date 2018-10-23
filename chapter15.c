@@ -78,3 +78,31 @@ void example(void)
 	printf("*p = %d\n", *p);
 	printf("i = %d\n", i);
 }
+
+// ポインタ演算
+void example_07_1(void)
+{
+	int *data;
+	int i, average = 0, array[10] = {15, 78, 98, 15, 98, 85,17, 35, 42, 15};
+	data = array;
+	for (i = 0; i < 10; ++i) {
+		average += *(data + i);
+	}
+
+	//ポインタ変数は値を変更出来ることを利用した次のような書き方もあります。
+	// for (data = array;data != &array[10];data++) {	/* ここに注目 */
+	// 	average += *data;
+	// }
+
+	printf("%d\n", average / 10);
+}
+
+void example_07_2(void)
+{
+	int *data;
+	int i, average = 0;
+	for (i = 0;i < 10;i++) {
+		average += data[i];
+	}
+	printf("%d\n", average / 10);
+}
